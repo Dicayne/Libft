@@ -5,3 +5,5 @@ ft_memccpy.c
 ft_memmove.c
 ft_memchr.c
 ft_memcmp.c
+
+script de test https://github.com/alelievr/libft-unit-test#linux
