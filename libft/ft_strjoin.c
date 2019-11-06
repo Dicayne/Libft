@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 10:19:56 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/06 17:02:39 by vmoreau          ###   ########.fr       */
+/*   Created: 2019/11/06 17:51:59 by vmoreau           #+#    #+#             */
+/*   Updated: 2019/11/06 18:35:59 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
-	int less;
-	int atoi;
+	char	*join;
+	int		len;
+	int		i;
+	int		j;
 
 	i = 0;
-	less = 0;
-	atoi = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	if (!(join = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (str[i] == '-')
-			less = 1;
+		join[i] = s1[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s2[j] != '\0')
 	{
-		atoi = atoi * 10 + (str[i] - '0');
+		join[i] = s2[j];
 		i++;
+		j++;
 	}
-	if (less == 1)
-		atoi = atoi * -1;
-	return (atoi);
+	join[i] = '\0';
+	return (join);
 }

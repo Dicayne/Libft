@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 10:19:56 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/06 17:02:39 by vmoreau          ###   ########.fr       */
+/*   Created: 2019/11/06 17:42:21 by vmoreau           #+#    #+#             */
+/*   Updated: 2019/11/06 18:42:57 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int i;
-	int less;
-	int atoi;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
-	less = 0;
-	atoi = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (s == NULL)
+		return (NULL);
+	if (!(sub = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	while (s[start] != '\0' && i <= len - 1)
 	{
-		if (str[i] == '-')
-			less = 1;
+		sub[i] = s[start];
 		i++;
+		start++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		atoi = atoi * 10 + (str[i] - '0');
-		i++;
-	}
-	if (less == 1)
-		atoi = atoi * -1;
-	return (atoi);
+	sub[i] = '\0';
+	return (sub);
 }

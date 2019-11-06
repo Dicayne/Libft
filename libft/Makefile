@@ -6,16 +6,19 @@
 #    By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2019/11/05 19:43:38 by vmoreau          ###   ########.fr        #
+#    Updated: 2019/11/06 19:58:10 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-		ft_isdigit.c ft_isprint.c ft_strchr.c ft_strlcpy.c \
-		ft_strlen.c ft_strncmp.c ft_strrchr.c ft_tolower.c \
-		ft_toupper.c ft_strlcat.c ft_strnstr.c ft_memset.c
+SRCS = ft_atoi.c		ft_isalnum.c	ft_isalpha.c	ft_isascii.c \
+		ft_isdigit.c	ft_isprint.c	ft_strchr.c		ft_strlcpy.c \
+		ft_strlen.c		ft_strncmp.c	ft_strrchr.c	ft_tolower.c \
+		ft_toupper.c	ft_strlcat.c	ft_strnstr.c	ft_memset.c \
+		ft_bzero.c		ft_memcpy.c		ft_memccpy.c	ft_memcmp.c \
+		ft_memchr.c		ft_memmove.c	ft_strdup.c		ft_calloc.c \
+		ft_substr.c		ft_strjoin.c	ft_itoa.c		
 
 CFLAGS = -Wall -Wextra -Werror
 

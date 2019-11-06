@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 10:19:56 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/06 17:02:39 by vmoreau          ###   ########.fr       */
+/*   Created: 2019/11/06 16:09:21 by vmoreau           #+#    #+#             */
+/*   Updated: 2019/11/06 16:19:38 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strdup(const char *s1)
 {
-	int i;
-	int less;
-	int atoi;
+	char	*dup;
+	int		i;
 
 	i = 0;
-	less = 0;
-	atoi = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (!(dup = malloc(sizeof(char) * ft_strlen(s1) + 1)))
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (str[i] == '-')
-			less = 1;
+		dup[i] = s1[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		atoi = atoi * 10 + (str[i] - '0');
-		i++;
-	}
-	if (less == 1)
-		atoi = atoi * -1;
-	return (atoi);
+	dup[i] = '\0';
+	return (dup);
 }

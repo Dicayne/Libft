@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 10:19:56 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/06 17:02:39 by vmoreau          ###   ########.fr       */
+/*   Created: 2019/11/06 12:59:25 by vmoreau           #+#    #+#             */
+/*   Updated: 2019/11/06 14:31:16 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int		ft_atoi(const char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int i;
-	int less;
-	int atoi;
+	size_t i;
 
 	i = 0;
-	less = 0;
-	atoi = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (i <= n - 1)
 	{
-		if (str[i] == '-')
-			less = 1;
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)s + i);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		atoi = atoi * 10 + (str[i] - '0');
-		i++;
-	}
-	if (less == 1)
-		atoi = atoi * -1;
-	return (atoi);
+	return (NULL);
 }
