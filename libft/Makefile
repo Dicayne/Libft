@@ -6,23 +6,29 @@
 #    By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2019/11/06 19:58:10 by vmoreau          ###   ########.fr        #
+#    Updated: 2019/11/07 20:15:01 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = ft_atoi.c		ft_isalnum.c	ft_isalpha.c	ft_isascii.c \
-		ft_isdigit.c	ft_isprint.c	ft_strchr.c		ft_strlcpy.c \
-		ft_strlen.c		ft_strncmp.c	ft_strrchr.c	ft_tolower.c \
-		ft_toupper.c	ft_strlcat.c	ft_strnstr.c	ft_memset.c \
-		ft_bzero.c		ft_memcpy.c		ft_memccpy.c	ft_memcmp.c \
-		ft_memchr.c		ft_memmove.c	ft_strdup.c		ft_calloc.c \
-		ft_substr.c		ft_strjoin.c	ft_itoa.c		
+SRCS = 	srcs/ft_atoi.c			srcs/ft_isalnum.c	srcs/ft_isalpha.c	\
+		srcs/ft_isascii.c		srcs/ft_isdigit.c	srcs/ft_isprint.c	\
+		srcs/ft_strchr.c		srcs/ft_strlcpy.c	srcs/ft_strlen.c	\
+		srcs/ft_strncmp.c		srcs/ft_strrchr.c	srcs/ft_tolower.c	\
+		srcs/ft_toupper.c		srcs/ft_strlcat.c	srcs/ft_strnstr.c	\
+		srcs/ft_memset.c		srcs/ft_bzero.c		srcs/ft_memcpy.c	\
+		srcs/ft_memccpy.c		srcs/ft_memcmp.c	srcs/ft_memchr.c	\
+		srcs/ft_memmove.c		srcs/ft_strdup.c	srcs/ft_calloc.c	\
+		srcs/ft_substr.c		srcs/ft_strjoin.c	srcs/ft_itoa.c		\
+		srcs/ft_strmapi.c		srcs/ft_split.c		srcs/ft_strtrim.c	\
+		srcs/ft_putchar_fd.c	srcs/ft_putstr_fd.c	srcs/ft_putendl_fd.c\
+		srcs/ft_putnbr_fd.c	
+
 
 CFLAGS = -Wall -Wextra -Werror
 
-INCL = ft.h
+INCL = srcs/ft.h
 
 OBJ = ${SRCS:.c=.o}
 
@@ -31,7 +37,7 @@ LIBCREA = ar rc
 .c.o :
 	gcc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCL}
 	
-${NAME} : ${OBJ}
+$(NAME) : ${OBJ}
 	${LIBCREA} ${NAME} ${OBJ}
 
 all : ${NAME}
