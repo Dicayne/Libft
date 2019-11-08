@@ -6,7 +6,7 @@
 #    By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2019/11/08 14:27:36 by vmoreau          ###   ########.fr        #
+#    Updated: 2019/11/08 20:54:11 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,19 @@ SRCS = 	ft_atoi.c			ft_isalnum.c	ft_isalpha.c	\
 		ft_substr.c			ft_strjoin.c	ft_itoa.c		\
 		ft_strmapi.c		ft_split.c		ft_strtrim.c	\
 		ft_putchar_fd.c		ft_putstr_fd.c	ft_putendl_fd.c	\
-		ft_putnbr_fd.c	
+		ft_putnbr_fd.c
 
+SRCSBO =	bonus/ft_lstadd_front_bonus.c		bonus/ft_lstlast_bonus.c	\
+			bonus/ft_lstadd_back-bonus.c		bonus/ft_lstsize_bonus.c	\
+			bonus/ft_lstnew_bonus.c			
 
 CFLAGS = -Wall -Wextra -Werror
 
 INCL = libft.h
 
 OBJ = $(SRCS:.c=.o)
+
+OBJBO = $(SRCSBO:.c=.o)
 
 LIBCREA = ar rc
 
@@ -42,8 +47,11 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
+bonus : $(OBJ) $(OBJBO)
+	$(LIBCREA) $(NAME) $(OBJ) $(OBJBO)
+
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJBO)
 
 fclean : clean
 	rm -rf $(NAME)
