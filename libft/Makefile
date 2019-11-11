@@ -6,7 +6,7 @@
 #    By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2019/11/08 20:54:11 by vmoreau          ###   ########.fr        #
+#    Updated: 2019/11/11 16:53:48 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,11 @@ SRCS = 	ft_atoi.c			ft_isalnum.c	ft_isalpha.c	\
 		ft_putchar_fd.c		ft_putstr_fd.c	ft_putendl_fd.c	\
 		ft_putnbr_fd.c
 
-SRCSBO =	bonus/ft_lstadd_front_bonus.c		bonus/ft_lstlast_bonus.c	\
-			bonus/ft_lstadd_back-bonus.c		bonus/ft_lstsize_bonus.c	\
-			bonus/ft_lstnew_bonus.c			
+SRCSBO =	ft_lstadd_front.c		ft_lstlast.c	\
+			ft_lstadd_back.c		ft_lstsize.c	\
+			ft_lstnew.c				ft_lstdelone.c	\
+			ft_lstclear.c			ft_lstiter.c	\
+			ft_lstmap.c
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -47,7 +49,7 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
-bonus : $(OBJ) $(OBJBO)
+bonus : $(OBJBO) $(OBJ)
 	$(LIBCREA) $(NAME) $(OBJ) $(OBJBO)
 
 clean :

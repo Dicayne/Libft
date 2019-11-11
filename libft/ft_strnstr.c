@@ -6,13 +6,13 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 12:44:12 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 16:58:59 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/11 10:10:26 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_checkneed(char *hay, const char *need, size_t a, size_t b)
+static int	ft_checkneed(char *hay, const char *need, size_t a, size_t b)
 {
 	int i;
 	int bool;
@@ -33,7 +33,7 @@ int		ft_checkneed(char *hay, const char *need, size_t a, size_t b)
 	return (bool);
 }
 
-char	*ft_strnstr(const char *hay, const char *need, size_t len)
+char		*ft_strnstr(const char *hay, const char *need, size_t len)
 {
 	size_t i;
 

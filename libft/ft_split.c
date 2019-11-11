@@ -6,13 +6,13 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 11:07:41 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 12:43:00 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/11 19:30:53 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_ischarset(char const a, char c)
+static int		ft_ischarset(char const a, char c)
 {
 	if (a == c)
 		return (1);
@@ -20,7 +20,7 @@ int		ft_ischarset(char const a, char c)
 		return (0);
 }
 
-int		ft_countword(char const *s, char c)
+static int		ft_countword(char const *s, char c)
 {
 	int i;
 	int word;
@@ -41,7 +41,7 @@ int		ft_countword(char const *s, char c)
 	return (word);
 }
 
-char	*ftf_strncpy(char *dst, const char *src, int len)
+static char		*ftf_strncpy(char *dst, const char *src, int len)
 {
 	int j;
 
@@ -60,7 +60,7 @@ char	*ftf_strncpy(char *dst, const char *src, int len)
 	return (dst);
 }
 
-void	ft_splity(char const *s, char c, char **split)
+static char		**ft_splity(char const *s, char c, char **split)
 {
 	int i;
 	int j;
@@ -78,25 +78,37 @@ void	ft_splity(char const *s, char c, char **split)
 			while (s[i + j] != '\0' && ft_ischarset(s[i + j], c) == 0)
 				j++;
 			if (!(split[k] = (char*)malloc(sizeof(char) * j + 1)))
-				return ;
+				return (NULL);
 			split[k] = ftf_strncpy(split[k], s + i, j);
 			k++;
 			i = i + j;
 		}
 	}
+	return (split);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		lentab;
+	int		k;
 
-	if (s == NULL)
+	k = 0;
+	if (s == NULL || c == '\0')
 		return (NULL);
 	lentab = ft_countword(s, c);
 	if (!(split = (char **)malloc(sizeof(char*) * (lentab + 1))))
 		return (NULL);
-	ft_splity(s, c, split);
+	if (!(split = ft_splity(s, c, split)))
+	{
+		while (split[k] != NULL)
+		{
+			free(split[k]);
+			k++;
+		}
+		free(split);
+		return (NULL);
+	}
 	split[lentab] = 0;
 	return (split);
 }

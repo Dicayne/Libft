@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:42:21 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 13:15:33 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/11 19:53:15 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		sub[0] = '\0';
 		return (sub);
 	}
-	while (s[start] != '\0' && i <= len - 1)
+	while (s[start] != '\0' && i < len)
 	{
 		sub[i] = s[start];
 		i++;

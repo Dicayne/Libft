@@ -6,13 +6,13 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:17:15 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 10:41:53 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/11 10:09:52 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_checkdec(int n)
+static int	ft_checkdec(int n)
 {
 	int i;
 
@@ -27,7 +27,7 @@ int		ft_checkdec(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*itoa;
 	int		k;
