@@ -6,11 +6,12 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:20:58 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 10:42:17 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 19:05:34 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "limits.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

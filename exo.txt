@@ -15,3 +15,36 @@ SRCS = 	srcs/ft_atoi.c			srcs/ft_isalnum.c	srcs/ft_isalpha.c	\
 		srcs/ft_putnbr_fd.c	
 
 https://github.com/Eywek/42/blob/master/fillit/libft/ft_strjoin.c
+
+
+main memchr 
+
+int main(int ac, char **av)
+{
+	char str[100] = "";
+	int c = -1000000;
+	int n = ac == 2 ? atoi(av[1]) : 0;
+
+	while (c < 1000000)
+	{
+		if (ft_memchr(str, c, n) != memchr(str, c , n))
+			break;
+		c++;
+	}
+	if (c != 1000000)
+		printf("%p, %p", ft_memchr(str, c, n), memchr(str, c, n));
+}
+
+// void	fft_lstclear(t_list **lst, void (*del)(void*))
+// {
+// 	t_list *ptr;
+
+// 	ptr = *lst;
+// 	while (ptr != NULL)
+// 	{
+// 		del(ptr->content);
+// 		free(ptr);
+// 		ptr = ptr->next;
+// 	}
+// 	*lst = NULL;
+// }

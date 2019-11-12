@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:35:09 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 23:29:24 by victor           ###   ########.fr       */
+/*   Updated: 2019/11/12 13:15:51 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t count;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	return (count);
 }

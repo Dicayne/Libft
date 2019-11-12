@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:17:15 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 10:09:52 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 19:21:20 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,29 @@ static int	ft_checkdec(int n)
 
 char		*ft_itoa(int n)
 {
-	char	*itoa;
+	char	*str;
 	int		k;
 	long	n1;
 
 	n1 = (long)n;
 	k = ft_checkdec(n);
-	if (!(itoa = malloc(sizeof(char) * k + 1)))
+	str = malloc(sizeof(char) * (k + 1));
+	if (str == NULL)
 		return (NULL);
 	if (n1 < 0)
 	{
 		n1 = n1 * -1;
-		itoa[0] = '-';
+		str[0] = '-';
 	}
-	itoa[k] = '\0';
+	str[k] = '\0';
 	k--;
 	if (n1 == 0)
-		itoa[k] = '0';
-	while (n1 != 0)
+		str[k] = '0';
+	while (n1 > 0)
 	{
-		itoa[k] = '0' + (n1 % 10);
+		str[k] = '0' + (n1 % 10);
 		n1 = n1 / 10;
 		k--;
 	}
-	return (itoa);
+	return (str);
 }

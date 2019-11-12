@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 18:04:26 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 14:22:10 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 19:30:29 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list		*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
+	if (lst != NULL)
+	{
+		while (lst->next != NULL)
+			lst = lst->next;
+	}
 	return (lst);
 }

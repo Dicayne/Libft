@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:29:56 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 16:36:35 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 15:47:16 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ t_list		*ft_lstnew(void *content)
 {
 	t_list *new;
 
-	if (!(new = malloc(sizeof(content) + sizeof(t_list))))
-		return (NULL);
-	if (content == NULL)
-		new->content = NULL;
-	else
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new != NULL)
+	{
 		new->content = content;
-	new->next = NULL;
+		new->next = NULL;
+	}
 	return (new);
 }

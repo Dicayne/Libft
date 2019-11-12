@@ -6,7 +6,7 @@
 #    By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2019/11/11 16:53:48 by vmoreau          ###   ########.fr        #
+#    Updated: 2019/11/12 17:08:59 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,31 +33,33 @@ SRCSBO =	ft_lstadd_front.c		ft_lstlast.c	\
 
 CFLAGS = -Wall -Wextra -Werror
 
-INCL = libft.h
+CC = clang
+
+INC = ./
+
+HEADER = $(INC)libft.h
 
 OBJ = $(SRCS:.c=.o)
 
 OBJBO = $(SRCSBO:.c=.o)
 
-LIBCREA = ar rc
-
-.c.o :
-	gcc $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCL)
-	
-$(NAME) : $(OBJ)
-	$(LIBCREA) $(NAME) $(OBJ)
-
 all : $(NAME)
 
+$(OBJ): %.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+	
+$(NAME) : $(OBJ)
+	ar rcs $@ $^
+
 bonus : $(OBJBO) $(OBJ)
-	$(LIBCREA) $(NAME) $(OBJ) $(OBJBO)
+	ar rcs $(NAME) $^
 
 clean :
-	rm -rf $(OBJ) $(OBJBO)
+	$(RM) $(OBJ) $(OBJBO)
 
 fclean : clean
-	rm -rf $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re .c.o
+.PHONY : all clean fclean re bonus

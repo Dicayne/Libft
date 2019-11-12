@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:51:26 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/08 10:42:04 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 17:26:50 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
+	i = ft_strlen(str);
 	while (i >= 0)
 	{
 		if (str[i] == c)

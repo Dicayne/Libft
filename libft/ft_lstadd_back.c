@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 18:19:38 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 15:55:24 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 19:31:44 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	if (*alst)
+	if (*alst != NULL)
 	{
 		while ((*alst)->next != NULL)
 			(*alst) = (*alst)->next;

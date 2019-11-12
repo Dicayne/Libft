@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:32:34 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/12 00:00:03 by victor           ###   ########.fr       */
+/*   Updated: 2019/11/12 19:18:47 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] != '\0' && ischarset(s1[i], set) == 1)
 		i++;
 	if (s1[i] == '\0')
-	{
-		if (!(trim = malloc(sizeof(char))))
-			return (NULL);
-		trim[0] = '\0';
-		return (trim);
-	}
+		return (ft_strdup(""));
 	j = ft_trimy(s1, set, i);
 	trim = ft_substr(s1, i, j);
 	return (trim);
 }
-
-// int main()
-// {
-// 	printf("%s\n", ft_strtrim("coucou", "cou\0"));
-// 	return (0);
-// }

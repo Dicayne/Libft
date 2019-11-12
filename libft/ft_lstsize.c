@@ -6,7 +6,7 @@
 /*   By: vmoreau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:39:50 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/11/11 14:22:13 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/11/12 16:22:36 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int		ft_lstsize(t_list *lst)
 {
-	int i;
+	int size;
 
-	i = 0;
+	size = 0;
 	while (lst != NULL)
 	{
-		i++;
+		size++;
 		lst = lst->next;
 	}
-	return (i);
+	return (size);
 }
