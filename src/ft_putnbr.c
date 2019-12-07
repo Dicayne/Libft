@@ -6,7 +6,7 @@
 /*   By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:03:59 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/12/07 21:04:42 by vmoreau          ###   ########.fr       */
+/*   Updated: 2019/12/07 23:56:20 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ void	ft_putnbr(int n)
 		nb = -nb;
 		ft_putchar('-');
 	}
-	if (nb > 10)
-	{
+	if (nb >= 10)
 		ft_putnbr(nb / 10);
-		ft_putchar((nb % 10) + '0');
-	}
-	else
-		ft_putchar(nb + '0');
+	ft_putchar((nb % 10) + '0');
 }
