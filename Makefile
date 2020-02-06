@@ -6,7 +6,7 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2020/02/06 17:11:04 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/02/06 17:44:35 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ CC = clang
 
 INC = header/
 
-HEADER = $(INC)libft.h	$(INC)get_next_line.h
+HEADER = $(INC)libft.h
 
 OBJ = $(SRCS:.c=.o)
 

@@ -6,13 +6,13 @@
 /*   By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 14:22:13 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/12/04 17:22:44 by vmoreau          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:28:51 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_strlen(char *str)
+int		ft_strlengnl(char *str)
 {
 	int i;
 
@@ -24,7 +24,7 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoingnl(char *s1, char *s2)
 {
 	char	*join;
 	int		len;
@@ -33,15 +33,15 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(s1) + ft_strlen(s2);
+	len = ft_strlengnl(s1) + ft_strlengnl(s2);
 	if (!(join = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (i < ft_strlengnl(s1))
 	{
 		join[i] = s1[i];
 		i++;
 	}
-	while (j < ft_strlen(s2))
+	while (j < ft_strlengnl(s2))
 	{
 		join[i] = s2[j];
 		i++;
@@ -52,13 +52,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (join);
 }
 
-char	*ft_strdup(char *str)
+char	*ft_strdupgnl(char *str)
 {
 	int		i;
 	char	*dup;
 
 	i = 0;
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	dup = (char *)malloc(sizeof(char) * (ft_strlengnl(str) + 1));
 	if (dup != NULL)
 	{
 		while (str[i] != '\0')

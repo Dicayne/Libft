@@ -6,7 +6,7 @@
 /*   By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 14:22:19 by vmoreau           #+#    #+#             */
-/*   Updated: 2020/02/06 17:17:11 by vmoreau          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:28:20 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_strwork(char **line, char *tmp, int ret, char **stock)
 	}
 	else
 	{
-		(*line) = ft_strdup((*stock));
+		(*line) = ft_strdupgnl((*stock));
 		free((*stock));
 	}
 }
@@ -50,7 +50,7 @@ int		check_tmp(char **line, char *tmp, char **stock)
 		tmp = ft_take_end(tmp);
 		return (1);
 	}
-	(*stock) = ft_strdup(tmp);
+	(*stock) = ft_strdupgnl(tmp);
 	return (0);
 }
 
@@ -71,7 +71,7 @@ int		get_next_line(int fd, char **line)
 		if ((ret = read(fd, tmp, BUFFER_SIZE)) == -1)
 			break ;
 		tmp[ret] = '\0';
-		stock = ft_strjoin(stock, tmp);
+		stock = ft_strjoingnl(stock, tmp);
 	}
 	ret == -1 ? free(stock) : ft_strwork(line, tmp, ret, &stock);
 	return (ret >= 1 ? 1 : ret);

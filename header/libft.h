@@ -6,7 +6,7 @@
 /*   By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:13:09 by vmoreau           #+#    #+#             */
-/*   Updated: 2019/12/06 18:05:00 by vmoreau          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:44:24 by vmoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 /*
 **STRUCTURE
