@@ -6,7 +6,7 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2020/01/09 16:07:50 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/02/06 17:11:04 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ SRCS = 	src/ft_atoi.c			src/ft_isalnum.c	src/ft_isalpha.c	\
 		src/ft_putchar_fd.c		src/ft_putstr_fd.c	src/ft_putendl_fd.c	\
 		src/ft_putnbr_fd.c		src/ft_lstlast.c	src/ft_lstnew.c		\
 		src/ft_lstclear.c		src/ft_lstiter.c	src/ft_lstmap.c		\
-		src/ft_lstsize.c		src/ft_lstdelone.c	src/ft_putchar.c	\
+		src/ft_lstsize.c		src/ft_lstdelone.c						\
 		src/ft_lstadd_front.c	src/ft_lstadd_back.c					\
-		src/ft_putstr.c			src/ft_putnbr.c
+		src/get_next_line.c		src/get_next_line_utils.c
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -35,7 +35,7 @@ CC = clang
 
 INC = header/
 
-HEADER = $(INC)libft.h
+HEADER = $(INC)libft.h	$(INC)get_next_line.h
 
 OBJ = $(SRCS:.c=.o)
 
