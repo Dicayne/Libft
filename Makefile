@@ -6,11 +6,25 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2020/03/03 13:17:40 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/03/03 14:25:04 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+####################################COLOR######################################
+#----------------reset----------------#
+NC = \033[0m
+
+#-----------Regular Colors------------#
+BLACK = \033[0;30m
+RED = \033[0;31m
+GREEN = \033[1;32m
+YELLOW = \033[33;33m
+BLUE = \033[0;34m
+PURPLE = \033[1;35m
+CYAN = \033[1;36m
+WHITE = \033[0;37m
 
 #####################################PATH######################################
 MEM = src/memory/
@@ -64,6 +78,8 @@ SRCS +=	$(PTF)ft_printf.c		$(PTF)check_flags.c	$(PTF)find_size.c	\
 		$(PTF)check_di.c		$(PTF)check_s.c		$(PTF)check_cper.c	\
 		$(PTF)check_uxp.c		$(PTF)check_di_d.c	$(PTF)set_ret.c
 
+####################################BASIC######################################
+
 CFLAGS = -Wall -Wextra -Werror
 
 CC = clang
@@ -76,32 +92,40 @@ OBJ = $(SRCS:.c=.o)
 
 OBJBO = $(SRCSBO:.c=.o)
 
+#####################################RULE######################################
+
 all : $(NAME)
 
-$(OBJ): %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+$(NAME) : echoCL $(OBJ) echoOK echoCS echoAR
+	ar rcs $@ $(OBJ)
 
-$(NAME) : echoCL $(OBJ) echoCS echoAR
-	@ar rcs $@ $(OBJ)
-
+$(OBJ): %.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+	printf "$(CYAN)."
+	
 clean :	echoCLEAN
-	@$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean : clean echoFCLEAN
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 
-#ECHO
+####################################ECHO######################################
 
 echoCL:
-	@echo "\033[33;33m===> Compiling Libft\033[m"
+	echo "$(YELLOW)===> Compiling Libft$(NC)"
+echoOK:
+	echo "$(GREEN)OK$(NC)"
 echoCS :
-	@echo "\033[1;32m===> Compilation Success\033[m"
+	echo "$(GREEN)===> Compilation Success$(NC)"
 echoCLEAN :
-	@echo "\033[35m===> Cleanning OBJ libft\033[m"
+	echo "$(PURPLE)===> Cleanning OBJ libft$(NC)"
 echoFCLEAN :
-	@echo "\033[35m===> Cleanning Libft.a\033[m"
+	echo "$(PURPLE)===> Cleanning Libft.a$(NC)"
 echoAR :
-	@echo "\033[1;36m===> Archiving Libft\033[m"
+	echo "$(CYAN)===> Archiving Libft$(NC)"
+
 .PHONY : all clean fclean re
+
+.SILENT :
