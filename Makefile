@@ -6,7 +6,7 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 15:18:39 by vmoreau           #+#    #+#              #
-#    Updated: 2020/03/03 14:41:55 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/04/08 18:23:44 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,8 +90,6 @@ HEADER = $(INC)libft.h
 
 OBJ = $(SRCS:.c=.o)
 
-OBJBO = $(SRCSBO:.c=.o)
-
 #####################################RULE######################################
 
 all : $(NAME)
@@ -99,10 +97,10 @@ all : $(NAME)
 $(NAME) : echoCL $(OBJ) echoOK echoCS echoAR
 	ar rcs $@ $(OBJ)
 
-$(OBJ): %.o: %.c $(HEADER) Makefile
-	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+$(OBJ) : %.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
 	printf "$(CYAN)."
-	
+
 clean :	echoCLEAN
 	$(RM) $(OBJ)
 
